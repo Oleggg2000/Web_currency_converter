@@ -5,28 +5,64 @@
     <meta charset="UTF-8">
     <title>Конвертер валют</title>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+    <script type="text/javascript">
+    function GiveResults() {
+        var num = parseFloat(document.getElementById("cash").value);
+        var from = document.getElementById("from").value;
+        var to = document.getElementById("to").value;
+
+        if (((from=== "USD") && (to=== "USD")) || ((from=== "EUR") && (to=== "EUR")) || ((from=== "RUB") && (to=== "RUB"))) {
+            document.getElementById("answer").innerHTML="Результат "+num;
+        }
+        if ((from=== "USD") && (to=== "RUB")) {
+            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[0] }};
+        }
+        if ((from=== "RUB") && (to=== "USD")) {
+            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[0] }};
+        }
+        if ((from=== "EUR") && (to=== "RUB")) {
+            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[1] }};
+        }
+        if ((from=== "RUB") && (to=== "EUR")) {
+            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[1] }};
+        }
+        if ((from=== "USD") && (to=== "EUR")) {
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[1] }};
+        }
+        if ((from=== "EUR") && (to=== "USD")) {
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[0] }};
+        }
+
+
+    }
+    </script>
 </head>
 
 <body>
 
-      <label>Выберите исходную валюту:</label>
-    <select name="from" id="from">
-        <option value="0" selected="selected">Доллар США</option>
-        <option value="1">Евро</option>
-        <option value="2">Рубль</option>
-    </select>
-    <label>Введите сумму: </label>
-    <input name="cash" id="cash" class="is" type="text"/>//создаем поля ввода для конвертируемой суммы
-      <br/> <br/>
-      <label>Выберите расчетную валюту: </label>
-     <select name="to" id="to" >
-        <option value="0">Доллар США</option>
-        <option value="1" selected="selected">Евро</option>
-        <option value="2">Рубль</option>
+<label>Выберите исходную валюту:</label>
+    <select id="from">
+        <option value="USD" selected="selected">Доллар США</option>
+        <option value="EUR">Евро</option>
+        <option value="RUB">Рубль</option>
+    </select><br/>
+<label>Введите сумму: </label>
+    <input id="cash" type="text"/>
+      <br/>
+<label>Выберите расчетную валюту: </label>
+     <select id="to" >
+        <option value="USD">Доллар США</option>
+        <option value="EUR" selected="selected">Евро</option>
+        <option value="RUB">Рубль</option>
      </select>
-    <input class="button" type=button value="Вычислить" onclick='GiveResult();'>
+    <button onclick='GiveResults();'>Вычислить</button>
+    <br/>
+<h2 id="answer"></h2>
 
 
-    <img src="money.svg" class="bgimg">
+
+
+
 </body>
 </html>
