@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    values = [check_currency(DOLLAR_RUB), check_currency(EURO_RUB)]
+    values = [check_currency(DOLLAR_RUB), check_currency(EURO_RUB), check_currency(JPY_RUB)]
     for value in values:
         print(value)
     return render_template("index.html", cur_value=values)
