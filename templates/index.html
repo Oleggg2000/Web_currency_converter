@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+
+<body>
+
+      <label>Выберите исходную валюту:</label>
+    <select name="from" id="from">
+        <option value="0" selected="selected">Доллар США</option>
+        <option value="1">Евро</option>
+        <option value="2">Рубль</option>
+    </select>
+    <label>Введите сумму: </label>
+    <input name="cash" id="cash" class="is" type="text"/>//создаем поля ввода для конвертируемой суммы
+      <br/> <br/>
+      <label>Выберите расчетную валюту: </label>
+     <select name="to" id="to" >
+        <option value="0">Доллар США</option>
+        <option value="1" selected="selected">Евро</option>
+        <option value="2">Рубль</option>
+     </select>
+    <input class="button" type=button value="Вычислить" onclick='GiveResult();'>
+
+
+    <img src="money.svg" class="bgimg">
+</body>
+</html>
