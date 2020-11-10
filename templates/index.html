@@ -23,37 +23,37 @@
             document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }}).toFixed(3)+to;
         }
         if ((from=== "USD") && (to=== "JPY")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[2] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+((num*{{ cur_value[0] }})/{{ cur_value[2] }}).toFixed(3)+to;
         }
         if ((from=== "RUB") && (to=== "USD")) {
-            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[0] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+(num/{{ cur_value[0] }}).toFixed(3)+to;
         }
         if ((from=== "EUR") && (to=== "RUB")) {
-            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[1] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }}).toFixed(3)+to;
         }
         if ((from=== "EUR") && (to=== "JPY")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[2] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+((num*{{ cur_value[1] }})/{{ cur_value[2] }}).toFixed(3)+to;
         }
         if ((from=== "RUB") && (to=== "EUR")) {
-            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[1] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+(num/{{ cur_value[1] }}).toFixed(3)+to;
         }
         if ((from=== "USD") && (to=== "EUR")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[1] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+((num*{{ cur_value[0] }})/{{ cur_value[1] }}).toFixed(3)+to;
         }
         if ((from=== "EUR") && (to=== "USD")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[0] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+((num*{{ cur_value[1] }})/{{ cur_value[0] }}).toFixed(3)+to;
         }
         if ((from=== "JPY") && (to=== "USD")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[0] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+((num*{{ cur_value[2] }})/{{ cur_value[0] }}).toFixed(3)+to;
         }
         if ((from=== "JPY") && (to=== "EUR")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[1] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+((num*{{ cur_value[2] }})/{{ cur_value[1] }}).toFixed(3)+to;
         }
         if ((from=== "RUB") && (to=== "JPY")) {
-            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[2] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+(num/{{ cur_value[2] }}).toFixed(3)+to;
         }
         if ((from=== "JPY") && (to=== "RUB")) {
-            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[2] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }}).toFixed(3)+to;
         }
     }
     </script>
