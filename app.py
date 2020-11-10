@@ -10,5 +10,6 @@ def index():
         print(value)
     return render_template("index.html", cur_value=values)
 
+
 if __name__ == "__main__":
     app.run()
