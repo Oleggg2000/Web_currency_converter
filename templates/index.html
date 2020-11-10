@@ -16,11 +16,11 @@
 
         if (((from=== "USD") && (to=== "USD")) || ((from=== "EUR") && (to=== "EUR")) || ((from=== "RUB") && (to=== "RUB"))) {
             res= (num.toFixed(3)).toString();
-            $.post("main.php", {res:res});
-            document.getElementById("answer").innerHTML="Результат "+num+to;
+            $.get("main.php", {res:res});
+            document.getElementById("answer").innerHTML="Результат "+num.toFixed(3)+to;
         }
         if ((from=== "USD") && (to=== "RUB")) {
-            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[0] }}+to;
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }}).toFixed(3)+to;
         }
         if ((from=== "USD") && (to=== "JPY")) {
             document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[2] }}+to;
