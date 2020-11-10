@@ -13,16 +13,22 @@
         var to = document.getElementById("to").value;
 
         if (((from=== "USD") && (to=== "USD")) || ((from=== "EUR") && (to=== "EUR")) || ((from=== "RUB") && (to=== "RUB"))) {
-            document.getElementById("answer").innerHTML="Результат "+num;
+            document.getElementById("answer").innerHTML="Результат "+num+to;
         }
         if ((from=== "USD") && (to=== "RUB")) {
             document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[0] }};
+        }
+        if ((from=== "USD") && (to=== "JPY")) {
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[2] }};
         }
         if ((from=== "RUB") && (to=== "USD")) {
             document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[0] }};
         }
         if ((from=== "EUR") && (to=== "RUB")) {
             document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[1] }};
+        }
+        if ((from=== "EUR") && (to=== "JPY")) {
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[2] }};
         }
         if ((from=== "RUB") && (to=== "EUR")) {
             document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[1] }};
@@ -33,36 +39,45 @@
         if ((from=== "EUR") && (to=== "USD")) {
             document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[0] }};
         }
-
-
+        if ((from=== "JPY") && (to=== "USD")) {
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[0] }};
+        }
+        if ((from=== "JPY") && (to=== "EUR")) {
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[1] }};
+        }
+        if ((from=== "RUB") && (to=== "JPY")) {
+            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[2] }};
+        }
+        if ((from=== "JPY") && (to=== "RUB")) {
+            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[2] }};
+        }
     }
     </script>
 </head>
 
 <body>
-
-<label>Выберите исходную валюту:</label>
+<div class="block">
+<label class="text">Выберите исходную валюту:</label>
     <select id="from">
         <option value="USD" selected="selected">Доллар США</option>
         <option value="EUR">Евро</option>
+        <option value="JPY">Йена</option>
         <option value="RUB">Рубль</option>
     </select><br/>
-<label>Введите сумму: </label>
+<label class="text">Введите сумму: </label>
     <input id="cash" type="text"/>
       <br/>
-<label>Выберите расчетную валюту: </label>
+<label class="text">Выберите расчетную валюту: </label>
      <select id="to" >
         <option value="USD">Доллар США</option>
         <option value="EUR" selected="selected">Евро</option>
+        <option value="JPY">Йена</option>
         <option value="RUB">Рубль</option>
      </select>
-    <button onclick='GiveResults();'>Вычислить</button>
+    <button onclick='GiveResults();' id="button">Вычислить</button>
     <br/>
 <h2 id="answer"></h2>
-
-
-
-
+</div>
 
 </body>
 </html>
