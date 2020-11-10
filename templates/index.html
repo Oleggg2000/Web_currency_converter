@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Конвертер валют</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
     <script type="text/javascript">
@@ -11,45 +12,48 @@
         var num = parseFloat(document.getElementById("cash").value);
         var from = document.getElementById("from").value;
         var to = document.getElementById("to").value;
+        var res;
 
         if (((from=== "USD") && (to=== "USD")) || ((from=== "EUR") && (to=== "EUR")) || ((from=== "RUB") && (to=== "RUB"))) {
+            res= (num.toFixed(3)).toString();
+            $.post("main.php", {res:res});
             document.getElementById("answer").innerHTML="Результат "+num+to;
         }
         if ((from=== "USD") && (to=== "RUB")) {
-            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[0] }};
+            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[0] }}+to;
         }
         if ((from=== "USD") && (to=== "JPY")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[2] }};
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[2] }}+to;
         }
         if ((from=== "RUB") && (to=== "USD")) {
-            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[0] }};
+            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[0] }}+to;
         }
         if ((from=== "EUR") && (to=== "RUB")) {
-            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[1] }};
+            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[1] }}+to;
         }
         if ((from=== "EUR") && (to=== "JPY")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[2] }};
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[2] }}+to;
         }
         if ((from=== "RUB") && (to=== "EUR")) {
-            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[1] }};
+            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[1] }}+to;
         }
         if ((from=== "USD") && (to=== "EUR")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[1] }};
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[0] }})/{{ cur_value[1] }}+to;
         }
         if ((from=== "EUR") && (to=== "USD")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[0] }};
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[1] }})/{{ cur_value[0] }}+to;
         }
         if ((from=== "JPY") && (to=== "USD")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[0] }};
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[0] }}+to;
         }
         if ((from=== "JPY") && (to=== "EUR")) {
-            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[1] }};
+            document.getElementById("answer").innerHTML="Результат "+(num*{{ cur_value[2] }})/{{ cur_value[1] }}+to;
         }
         if ((from=== "RUB") && (to=== "JPY")) {
-            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[2] }};
+            document.getElementById("answer").innerHTML="Результат "+num/{{ cur_value[2] }}+to;
         }
         if ((from=== "JPY") && (to=== "RUB")) {
-            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[2] }};
+            document.getElementById("answer").innerHTML="Результат "+num*{{ cur_value[2] }}+to;
         }
     }
     </script>
