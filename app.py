@@ -19,7 +19,9 @@ def submit():
         from_cur = request.form["from"]
         amount = request.form["cash"]
         to_cur = request.form["to"]
-        print(from_cur, amount, to_cur)
+        #print(from_cur, amount, to_cur)
+        if amount =="":
+            return render_template("index.html", message="Введите число!!", cur_value=values)
     return render_template("index.html", cur_value=values)
 
 
