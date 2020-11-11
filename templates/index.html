@@ -15,8 +15,6 @@
         var res;
 
         if (((from=== "USD") && (to=== "USD")) || ((from=== "EUR") && (to=== "EUR")) || ((from=== "RUB") && (to=== "RUB"))) {
-            res= (num.toFixed(3)).toString();
-            $.get("main.php", {res:res});
             document.getElementById("answer").innerHTML="Результат "+num.toFixed(3)+to;
         }
         if ((from=== "USD") && (to=== "RUB")) {
@@ -61,26 +59,29 @@
 
 <body>
 <div class="block">
+<form action="/submit", method="POST">
 <label class="text">Выберите исходную валюту:</label>
-    <select id="from">
+    <select id="from" name="from">
         <option value="USD" selected="selected">Доллар США</option>
         <option value="EUR">Евро</option>
         <option value="JPY">Йена</option>
         <option value="RUB">Рубль</option>
     </select><br/>
 <label class="text">Введите сумму: </label>
-    <input id="cash" type="text"/>
+    <input id="cash" type="text" name="cash"/>
       <br/>
 <label class="text">Выберите расчетную валюту: </label>
-     <select id="to" >
+     <select id="to" name="to">
         <option value="USD">Доллар США</option>
         <option value="EUR" selected="selected">Евро</option>
         <option value="JPY">Йена</option>
         <option value="RUB">Рубль</option>
      </select>
-    <button onclick='GiveResults();' id="button">Вычислить</button>
+    <button onclick='GiveResults();' class="button">Вычислить</button>
+    <input type="submit" value="Submit" class="button"/>
     <br/>
 <h2 id="answer"></h2>
+</form>
 </div>
 
 </body>
