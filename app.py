@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+import os
 from cur_conv import *
 
+Postgres_DATABASE_URL = os.environ.get("DATABASE_URL")
 app = Flask(__name__)
 
 @app.route('/')
