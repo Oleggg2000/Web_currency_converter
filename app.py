@@ -1,9 +1,19 @@
 from flask import Flask, render_template, request
 import os
 from cur_conv import *
+import psycopg2
+
+conn = psycopg2.connect(dbname='d35ghu4nho8g46', user='noglraoqozczqg',
+                        password='c3e7c74e860567d660bf4b365f5b400e9f7611d023fbc051d4b7a2cbef695833', host='ec2-54-247-122-209.eu-west-1.compute.amazonaws.com')
+print("Database opened successfully")
+cur = conn.cursor()
+#cur.execute("CREATE TABLE forlab4 (id SERIAL PRIMARY KEY, " +
+#    "from_ VARCHAR(4), value VARCHAR(20), to_ VARCHAR(4))")
+#conn.commit()
+
+
 
 app = Flask(__name__)
-
 
 
 @app.route('/')
@@ -20,10 +30,14 @@ def submit():
         from_cur = request.form["from"]
         amount = request.form["cash"]
         to_cur = request.form["to"]
-        print(from_cur, amount, to_cur)
+        cur.execute("INSERT INTO forlab4 (from_, value, to_) VALUES (%s, %s, %s)", (from_cur,amount,to_cur))
+        conn.commit()
+
     return render_template("index.html", cur_value=values)
 
 
 
 if __name__ == "__main__":
     app.run()
+    cur.close()
+    conn.close()
