@@ -1,25 +1,10 @@
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
 import os
 from cur_conv import *
 
-Postgres_DATABASE_URL = os.environ.get("DATABASE_URL")
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-db = SQLAlchemy(app)
 
-class CurCalc(db.Model):
-    __tablename__= "cur_transactions"
-    id = db.Column(db.Integer, primary_key=True)
-    cur_from = db.Column(db.String(4))
-    amount = db.Column(db.Float)
-    cur_to = db.Column(db.String(4))
-
-    def __init__(self, cur_from, amount, cur_to):
-        self.cur_from = cur_from
-        self.amount = amount
-        self.cur_to = cur_to
 
 @app.route('/')
 def index():
