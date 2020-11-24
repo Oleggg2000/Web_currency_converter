@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import os
 from cur_conv import *
 import psycopg2
 
@@ -30,8 +29,7 @@ def submit():
         from_cur = request.form["from"]
         amount = request.form["cash"]
         to_cur = request.form["to"]
-        res_cur = request.form["answer"]
-        cur.execute("INSERT INTO forlab4 (from_, value_, to_, res_) VALUES (%s, %s, %s, %s)", (from_cur, amount, to_cur, res_cur))
+        cur.execute("INSERT INTO forlab4 (from_, value_, to_) VALUES (%s, %s, %s)", (from_cur, amount, to_cur))
         conn.commit()
 
     return render_template("index.html", cur_value=values)

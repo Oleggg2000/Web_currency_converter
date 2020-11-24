@@ -9,7 +9,7 @@ cur = conn.cursor()
 #     "from_ VARCHAR(4), value_ VARCHAR(20), to_ VARCHAR(4), res_ VARCHAR(10))")
 # conn.commit()
 
-cur.execute("SELECT id, from_, value_, to_, res_ FROM forlab4")
+cur.execute("SELECT id, from_, value_, to_ FROM forlab4")
 for row in cur:
     print(row)
 
