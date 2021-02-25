@@ -30,8 +30,12 @@
           <option name="url" value="https://github.com/Oleggg2000/WebGame.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/selevit/tornado-chat.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="C:\Users\Oleg\Desktop\Study\CiT\Lab_4" />
+    <option name="cloneParentDir" value="C:\Users\Oleg\Desktop\Study\CiT" />
   </component>
 </application>
