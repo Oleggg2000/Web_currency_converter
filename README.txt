@@ -1,1 +1,1 @@
-Hello, this is my new web-game
+Hello, this is my web currency converter
