@@ -34,8 +34,12 @@
           <option name="url" value="https://github.com/selevit/tornado-chat.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/Oleggg2000/Optimization_methods_.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="C:\Users\Oleg\Desktop\Study\CiT" />
+    <option name="cloneParentDir" value="C:\Users\Oleg\Desktop\Study" />
   </component>
 </application>
