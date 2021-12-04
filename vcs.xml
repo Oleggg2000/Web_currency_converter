@@ -46,6 +46,10 @@
           <option name="url" value="https://github.com/Oleggg2000/Web_services.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/Oleggg2000/Networks_and_telecommunication_systems.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Oleg\Desktop\Study\git" />
